@@ -106,8 +106,13 @@ Explicitly identifying loss-making inventory enables organizations to move beyon
 As with any decision framework designed for scalability and interpretability, the model relies on a set of simplifying assumptions that define its scope. 
 
 First, pricing strategies are evaluated as fixed policies over time. In practice, pricing decisions are often staged, with deeper discounts applied as inventory ages. Extending the framework to evaluate predefined multi-period pricing paths—such as maintaining full price initially before applying successive markdowns—would allow more granular SKU-level decisions while preserving transparency and computational simplicity. 
+
 Second, demand is treated as deterministic within each scenario. Monthly sales rates are assumed constant, adjusted only through discount-driven uplift factors. Incorporating stochastic demand or probabilistic sell-through would enable explicit risk analysis but would materially increase model complexity and data requirements. 
+
 Third, the model evaluates SKUs independently and does not account for cross-product interactions such as substitution effects, cannibalization, or shared capacity constraints. While this independence assumption supports scalability across large portfolios, future extensions could incorporate category-level or capacity-based constraints to better reflect operational realities. 
+
 Holding costs are modeled as a simplified per-SKU approximation applied at the beginning of each period. This approach captures the economic pressure of carrying inventory but does not explicitly optimize warehouse-level capacity, stepwise cost structures, or consolidation decisions. A more detailed capacity model could further refine clearance timing and prioritization. 
+
 Finally, while intuitive revenue-based guardrails—such as bounding outcomes between immediate clearance value and full-price sell-through—can be useful as high-level diagnostics, they were not enforced as strict constraints in this framework. Such bounds can oversimplify the economics by mixing discounted and undiscounted quantities and by ignoring the impact of holding costs and time-to-sell. Instead, the model prioritizes internal consistency, physical feasibility (e.g., no overselling of inventory), and decision consistency across strategies. Future extensions could formalize diagnostic checks that respect the timing and discounting structure of the model without imposing misleading economic bounds. 
+
 These limitations reflect deliberate trade-offs between realism, interpretability, and scalability. Future enhancements should be guided by the specific decision context and the marginal value of added complexity relative to operational usability.
