@@ -77,6 +77,3 @@ The model uses deterministic demand within each pricing scenario and evaluates s
 ## 7. How to Explore Further
 
 Full Python notebook with detailed implementation and assumptions
-7. How to Explore Further
-
-Full Python notebook with detailed implementation and assumptions
